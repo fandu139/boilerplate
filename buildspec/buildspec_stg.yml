@@ -1,0 +1,52 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo Check AWS, Git, Python version
+      - aws --version && git --version && python --version
+      - echo Check ENV Variable
+      - printenv
+      - cd $CODEBUILD_SRC_DIR
+      - pwd
+      
+      - echo scan all files with git-secrets
+      - git clone https://github.com/awslabs/git-secrets.git 
+      - cd git-secrets && make install
+      - git secrets --register-aws --global
+      - export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
+      - cd $CODEBUILD_SRC_DIR && git init
+      - git add . 
+      - cd $CODEBUILD_SRC_DIR && git secrets --scan
+      - rm -rf git-secrets
+      
+      - aws s3 cp s3://rll-stg-environment-bucket/api-event/.env $CODEBUILD_SRC_DIR
+      - ls -la
+      - echo Logging into AWS ECR...
+      - $(aws ecr get-login --no-include-email --region ap-southeast-1)
+      - REPOSITORY_URI=736438768435.dkr.ecr.ap-southeast-1.amazonaws.com/rll-staging-api-event
+      - docker pull $REPOSITORY_URI:latest --disable-content-trust
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - IMAGE_TAG=${COMMIT_HASH:=latest}
+      - ls -lah
+  build:
+    commands:
+      - echo build Docker image on `date`
+      - echo Building the Docker image...
+      - docker build -t $REPOSITORY_URI:latest .
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:latest
+      - echo build Docker image complete `date`
+      - echo push latest Docker images to ECR...
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - docker push $REPOSITORY_URI:latest  
+      - echo Writing Image Definitions File...
+      - printf '[{"name":"api-event","imageUri":"%s"}]' $REPOSITORY_URI:latest > staging-api-event.json
+cache:
+  paths:
+    - '/root/.m2/**/*'
+    - '/root/.npm/**/*'
+    - '/root/.composer/**/*'
+    
+artifacts:
+    files: 
+      - '**/*'
