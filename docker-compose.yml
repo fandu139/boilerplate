@@ -35,8 +35,6 @@ services:
   #     - DB_MYSQL_DATABASE=bigevent
   #     - REDIS_HOST=rdcaches
   #     - REDIS_PORT=6379
-  #     - RALALI_OAUTH_URL=https://oauthstaging.ralali.xyz
-  #     - RALALI_CORE_URL=https://apistaging.ralali.xyz
   #   command: ./main -e production
   #   tty: true
   #   depends_on:
