@@ -3,8 +3,8 @@ services:
   database:
     image: mysql:5.7
     environment:
-      MYSQL_DATABASE: 'bigevent'
-      MYSQL_USER: 'bigevent'
+      MYSQL_DATABASE: 'boiler'
+      MYSQL_USER: 'boiler'
       MYSQL_PASSWORD: 'root'
       MYSQL_ROOT_PASSWORD: 'root'
     ports:
