@@ -22,7 +22,6 @@ import (
 type LoginService struct {
 	loginRepository   repository.LoginRepositoryInterface
 	Cache             redis.Conn
-	eoRepository      repository.EventOrganizerRepositoryInterface
 	DefaultMiddleWare middleware.DefaultMiddleware
 }
 
@@ -31,7 +30,6 @@ type LoginService struct {
 func LoginServiceHandler() *LoginService {
 	return &LoginService{
 		loginRepository: repository.LoginRepositoryHandler(),
-		eoRepository:    repository.EventOrganizerRepositoryHandler(),
 		Cache:           cache.GetConnection(),
 	}
 }
@@ -68,18 +66,6 @@ func (service *LoginService) LoginControll(payload httpEntity.LoginRequest, wait
 	sessionDataUsers.IsOrganizers = user.IsOrganizer
 	expirationTime := time.Unix(1605194980, 0)
 
-	if user.IsOrganizer == true {
-		eoData := &dbEntity.EventOrganizers{}
-		waitGroup.Add(1)
-		go service.eoRepository.GetOrganizerByUserID(user.ID, eoData, waitGroup)
-		waitGroup.Wait()
-		sessionDataOrganizers := httpEntity.SessionDataOrganizers{}
-		sessionDataOrganizers.ID = eoData.ID
-		sessionDataOrganizers.Name = eoData.Name
-		sessionDataOrganizers.Email = eoData.CpEmail
-		sessionDataOrganizers.UserID = user.ID
-		sessionDataUsers.Organizers = sessionDataOrganizers
-	}
 	sessdata, _ := json.Marshal(sessionDataUsers)
 
 	claims := &httpEntity.Claims{}

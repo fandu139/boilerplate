@@ -31,7 +31,6 @@ type V1SsoService struct {
 	UserRepository    repository.UserRepositoryInterface
 	SsoBusiness       business.SsoBusinessInterface
 	Cache             redis.Conn
-	eoRepository      repository.EventOrganizerRepositoryInterface
 	DefaultMiddleware middleware.DefaultMiddleware
 }
 
@@ -41,7 +40,6 @@ func SsoServiceHandler() *V1SsoService {
 	return &V1SsoService{
 		UserRepository: repository.UserRepositoryHandler(),
 		SsoBusiness:    business.SsoBusinessHandler(),
-		eoRepository:   repository.EventOrganizerRepositoryHandler(),
 		Cache:          cache.GetConnection(),
 	}
 }
@@ -97,18 +95,6 @@ func (service *V1SsoService) GetGoogleOauthToken(payload *apiEntity.SsoGoogleReq
 	sessionDataUsers.IsOrganizers = usersData.IsOrganizer
 	expirationTime := time.Unix(1605194980, 0)
 
-	if user.IsOrganizer == true {
-		eoData := &dbEntity.EventOrganizers{}
-		waitGroup.Add(1)
-		go service.eoRepository.GetOrganizerByUserID(usersData.ID, eoData, waitGroup)
-		waitGroup.Wait()
-		sessionDataOrganizers := httpEntity.SessionDataOrganizers{}
-		sessionDataOrganizers.ID = eoData.ID
-		sessionDataOrganizers.Name = eoData.Name
-		sessionDataOrganizers.Email = eoData.CpEmail
-		sessionDataOrganizers.UserID = usersData.ID
-		sessionDataUsers.Organizers = sessionDataOrganizers
-	}
 	sessdata, _ := json.Marshal(sessionDataUsers)
 	claims := &httpEntity.Claims{}
 	claims.SessionData = string(sessdata)
@@ -250,19 +236,6 @@ func (service *V1SsoService) AuthRalaliLogin(payload *apiEntity.SsoAuthByPasswor
 	sessionDataUsers.Email = rspDB.Email
 	sessionDataUsers.IsOrganizers = rspDB.IsOrganizer
 	expirationTime := time.Unix(1605194980, 0)
-
-	if rspDB.IsOrganizer == true {
-		eoData := &dbEntity.EventOrganizers{}
-		waitGroup.Add(1)
-		go service.eoRepository.GetOrganizerByUserID(rspDB.ID, eoData, waitGroup)
-		waitGroup.Wait()
-		sessionDataOrganizers := httpEntity.SessionDataOrganizers{}
-		sessionDataOrganizers.ID = eoData.ID
-		sessionDataOrganizers.Name = eoData.Name
-		sessionDataOrganizers.Email = eoData.CpEmail
-		sessionDataOrganizers.UserID = rspDB.ID
-		sessionDataUsers.Organizers = sessionDataOrganizers
-	}
 
 	sessdata, _ := json.Marshal(sessionDataUsers)
 	claims := &httpEntity.Claims{}

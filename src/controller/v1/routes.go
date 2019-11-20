@@ -7,7 +7,6 @@ import (
 	users "github.com/ralali/event-api/src/controller/v1/users"
 	loginServices "github.com/ralali/event-api/src/service/v1/login"
 	ssoServices "github.com/ralali/event-api/src/service/v1/sso"
-	userServices "github.com/ralali/event-api/src/service/v1/users"
 	"github.com/ralali/event-api/src/util/middleware"
 )
 
@@ -23,29 +22,20 @@ func (rLoader *V1RouterLoader) V1Router(router *gin.Engine) {
 	loginHandler := &login.V1LoginController{
 		LoginService: loginServices.LoginServiceHandler(),
 	}
-	
+
 	// Sso
 	ssoHandler := &sso.V1SsoController{
 		SsoService: ssoServices.SsoServiceHandler(),
 	}
-	
 
-	//********* Not Secure API *********//
+	//********* Calling Handler To Routers *********//
 	rLoader.routerLogin(router, loginHandler)
-	rLoader.routerUsersNoLogin(router, userHandler)
 	rLoader.routerOauth(router, ssoHandler)
 	rLoader.routerGoogleOauth(router, ssoHandler)
-	//********* End Not Secure API *********//
-
-	//********* Secure API *********//
-
-	rLoader.routerUsers(router, userHandler)
-	//********* End Secure API *********//
 
 }
 
 //********* Routing API *********//
-
 
 // routerDefinition Routes for user | params
 // @router: gin Engine
