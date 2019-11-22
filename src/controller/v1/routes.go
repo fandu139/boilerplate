@@ -2,15 +2,12 @@ package users
 
 import (
 	"github.com/gin-gonic/gin"
-	health "github.com/ralali/event-api/src/controller/v1/health"
-	login "github.com/ralali/event-api/src/controller/v1/login"
-	sso "github.com/ralali/event-api/src/controller/v1/sso"
-	users "github.com/ralali/event-api/src/controller/v1/users"
+	health "github.com/sofyan48/BOILERGOLANG/src/controller/v1/health"
+	
 
-	healthService "github.com/ralali/event-api/src/service/v1/health"
-	loginServices "github.com/ralali/event-api/src/service/v1/login"
-	ssoServices "github.com/ralali/event-api/src/service/v1/sso"
-	"github.com/ralali/event-api/src/util/middleware"
+	healthService "github.com/sofyan48/BOILERGOLANG/src/service/v1/health"
+	
+	"github.com/sofyan48/BOILERGOLANG/src/util/middleware"
 )
 
 // V1RouterLoader types

@@ -8,8 +8,8 @@ import (
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 
-	_ "github.com/ralali/event-api/docs/swagger/docs"
-	v1 "github.com/ralali/event-api/src/controller/v1"
+	_ "github.com/sofyan48/BOILERGOLANG/docs/swagger/docs"
+	v1 "github.com/sofyan48/BOILERGOLANG/src/controller/v1"
 )
 
 // LoadRouter params
