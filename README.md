@@ -7,13 +7,13 @@ This support For go version 1.13
 
 Fork this repo for your repo then clone in your local
 ```
-git clone https://github.com/$USERNAME/event-api.git
+git clone https://github.com/sofyan48/BOILERGOLANG.git
 ```
 
 Get Project Moduls
 
 ```
-go get github.com/ralali/event-api
+go get github.com/sofyan48/BOILERGOLANG
 ```
 
 #### Environment Setup
