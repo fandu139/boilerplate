@@ -82,7 +82,7 @@ air -c watcher.conf
 #### Dockerizing
 Building Image
 ```
-docker build -t bigevent_api
+docker build -t boiler
 ```
 Edit Environment In docker-compose.yml then Run Compose
 ```
