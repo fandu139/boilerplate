@@ -4,9 +4,9 @@ import (
 	"time"
 
 	"github.com/jinzhu/gorm"
-	httpEntity "github.com/ralali/event-api/src/entity/http/v1"
-	connection "github.com/ralali/event-api/src/util/helper/mysqlconnection"
-	redisConn "github.com/ralali/event-api/src/util/helper/redis"
+	httpEntity "github.com/sofyan48/BOILERGOLANG/src/entity/http/v1"
+	connection "github.com/sofyan48/BOILERGOLANG/src/util/helper/mysqlconnection"
+	redisConn "github.com/sofyan48/BOILERGOLANG/src/util/helper/redis"
 )
 
 // V1HealthCheck | Derivated from UserRepository

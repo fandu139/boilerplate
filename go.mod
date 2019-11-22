@@ -1,4 +1,4 @@
-module github.com/ralali/event-api
+module github.com/sofyan48/BOILERGOLANG
 
 go 1.13
 

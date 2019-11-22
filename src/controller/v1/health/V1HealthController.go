@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	service "github.com/ralali/event-api/src/service/v1/health"
+	service "github.com/sofyan48/BOILERGOLANG/src/service/v1/health"
 )
 
 // V1HealthController types

@@ -9,7 +9,7 @@ import (
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
-	httpEntity "github.com/ralali/event-api/src/entity/http/v1"
+	httpEntity "github.com/sofyan48/BOILERGOLANG/src/entity/http/v1"
 )
 
 var seededRand *rand.Rand = rand.New(

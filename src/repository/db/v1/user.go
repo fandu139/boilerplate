@@ -5,8 +5,8 @@ import (
 
 	"github.com/jinzhu/gorm"
 
-	dbEntity "github.com/ralali/event-api/src/entity/db/v1"
-	connection "github.com/ralali/event-api/src/util/helper/mysqlconnection"
+	dbEntity "github.com/sofyan48/BOILERGOLANG/src/entity/db/v1"
+	connection "github.com/sofyan48/BOILERGOLANG/src/util/helper/mysqlconnection"
 )
 
 // UserRepository types

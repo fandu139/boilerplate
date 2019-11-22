@@ -21,27 +21,14 @@ type V1RouterLoader struct {
 // V1Router Params
 // @router: gin.Engine
 func (rLoader *V1RouterLoader) V1Router(router *gin.Engine) {
-	// Login
-	loginHandler := &login.V1LoginController{
-		LoginService: loginServices.LoginServiceHandler(),
-	}
-
-	// Sso
-	ssoHandler := &sso.V1SsoController{
-		SsoService: ssoServices.SsoServiceHandler(),
-	}
-
-	// health
+	
 	// Health Handler Routes
 	healthHandler := &health.V1HealthController{
 		HealthService: healthService.V1HealthCheckHandler(),
 	}
 
 	//********* Calling Handler To Routers *********//
-	rLoader.routerLogin(router, loginHandler)
 	rLoader.routerHealthCheck(router, healthHandler)
-	rLoader.routerOauth(router, ssoHandler)
-	rLoader.routerGoogleOauth(router, ssoHandler)
 
 }
 
@@ -53,47 +40,4 @@ func (rLoader *V1RouterLoader) V1Router(router *gin.Engine) {
 func (rLoader *V1RouterLoader) routerHealthCheck(router *gin.Engine, handler *health.V1HealthController) {
 	group := router.Group("v1/check")
 	group.GET("", handler.HealthCheck)
-}
-
-// routerDefinition Routes for user | params
-// @router: gin Engine
-// @handler: UserController
-func (rLoader *V1RouterLoader) routerUsers(router *gin.Engine, handler *users.V1UserController) {
-	group := router.Group("v1/users")
-	group.GET("", rLoader.Middleware.AuthToken(0), handler.GetUsers)
-	group.GET(":id", rLoader.Middleware.AuthToken(0), handler.GetUserByID)
-	group.PUT(":id", rLoader.Middleware.AuthToken(0), handler.UpdateUsersByID)
-}
-
-// routerUsersNoLogin Routes for user | params
-// @router: gin Engine
-// @handler: UserController
-func (rLoader *V1RouterLoader) routerUsersNoLogin(router *gin.Engine, handler *users.V1UserController) {
-	group := router.Group("v1/users")
-	group.POST("", handler.InsertUsers)
-}
-
-// routerDefinition Routes for oauth | params
-// @router: gin Engine
-// @handler: SsoController
-func (rLoader *V1RouterLoader) routerOauth(router *gin.Engine, handler *sso.V1SsoController) {
-	group := router.Group("v1/ralali/oauth")
-	group.POST("", handler.LoginRalaliOauthToken)
-}
-
-// routerDefinition Routes for oauth | params
-// @router: gin Engine
-// @handler: SsoController
-func (rLoader *V1RouterLoader) routerGoogleOauth(router *gin.Engine, handler *sso.V1SsoController) {
-	group := router.Group("v1/google/oauth")
-	group.POST("", handler.GetGoogleOauthToken)
-}
-
-// routerLogin Routes for forgot | params
-// @router: gin Engine
-// @handler: LoginController
-func (rLoader *V1RouterLoader) routerLogin(router *gin.Engine, handler *login.V1LoginController) {
-	group := router.Group("v1/login")
-	group.POST("", handler.Login)
-	group.GET("refresh", handler.RefreshTokens)
 }

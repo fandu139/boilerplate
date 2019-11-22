@@ -6,10 +6,10 @@ import (
 	"log"
 	"os"
 
-	"github.com/ralali/event-api/src/config"
+	"github.com/sofyan48/BOILERGOLANG/src/config"
 
 	"github.com/joho/godotenv"
-	"github.com/ralali/event-api/src/routes"
+	"github.com/sofyan48/BOILERGOLANG/src/routes"
 )
 
 // ConfigEnvironment |
