@@ -1,6 +1,6 @@
 # BOILERPLATE
 
-## Installing
+## Getting Started
 This support For go version 1.13 
 
 ### Local Development
