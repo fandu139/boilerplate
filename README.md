@@ -170,6 +170,10 @@ See the list below for instructions on how to use this boilerplate:
 
 Plugins and utils are in the ***util*** folder all third-party packages that help you should be stored in this folder, you can choose whether the package is a middleware of your REST API or as a pure supporting utility
 
+### Diagram
+
+![golang clean architecture](https://github.com/sofyan48/BOILERGOLANG/blob/master/docs/diagram.png)
+
 ## Database Migration
 ### Golang Migrate
 Documentation Mode 
