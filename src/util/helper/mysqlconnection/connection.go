@@ -83,7 +83,7 @@ type Logger struct {
 }
 
 // Print logger view
-// return: interface
+// @values: interface
 func (l *Logger) Print(values ...interface{}) {
 	var additionalString = ""
 	for _, item := range values {
