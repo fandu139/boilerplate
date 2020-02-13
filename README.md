@@ -1,13 +1,13 @@
-# BOILERPLATE
+# GOLANG BOILERPLATE
 
 ## Getting Started
-This support For go version 1.13 
+This support For go version 1.13, Boilerplate uncle Bob Models
 
 ### Local Development
 
 Fork this repo for your repo then clone in your local
 ```
-git clone https://github.com/sofyan48/BOILERGOLANG.git
+git clone https://github.com/sofyan48/boilerplate.git
 ```
 
 Get Project Moduls
