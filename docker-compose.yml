@@ -21,35 +21,15 @@ services:
         command: redis-server --requirepass root
         ports:
         - "6379:6379"
-    # # Run migrate tools
-    # orn_service_api_golang_tools_migrate:
-    #     image: ralali/service:local
-    #     build: .
-    #     command: ralali migrate up
-    #     restart: on-failure
-    #     depends_on:
-    #     - orn_service_api_mysql
-    #     volumes:
-    #     - .:/app
-    # # Run Seeder Tools
-    # orn_service_api_golang_tools_seed:
-    #     image: ralali/service:local
-    #     build: .
-    #     command: ralali seed -p database/seeder
-    #     restart: on-failure
-    #     depends_on:
-    #     - orn_service_api_mysql
-    #     volumes:
-    #     - .:/app
-    # # Run Service by development mode
-    # orn_service_api_golang:
-    #     image: ralali/service:local
-    #     build: .
-    #     ports:
-    #     - '3000:3000'
-    #     command: air
-    #     restart: on-failure
-    #     depends_on:
-    #     - orn_service_api_mysql
-    #     volumes:
-    #     - .:/app
+    # Run Service by development mode
+    orn_service_api_golang:
+        image: ralali/service:local
+        build: .
+        ports:
+        - '3000:3000'
+        command: air
+        restart: on-failure
+        depends_on:
+        - orn_service_api_mysql
+        volumes:
+        - .:/app
