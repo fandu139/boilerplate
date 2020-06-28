@@ -37,4 +37,11 @@ tmp
 /qa_test/.nyc_output
 
 # go sum
+database/data
+logger/mongo
+mongo
 go.sum
+tmp
+bin
+.env.ssm
+docs

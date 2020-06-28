@@ -3,24 +3,11 @@ package main
 import (
 	"flag"
 	"fmt"
-	"log"
 	"os"
 
-	"github.com/sofyan48/BOILERGOLANG/src/config"
-
-	"github.com/joho/godotenv"
-	"github.com/sofyan48/BOILERGOLANG/src/routes"
+	"github.com/orn-id/orn-mn-boilerplate-go/src/config"
+	"github.com/orn-id/orn-mn-boilerplate-go/src/router"
 )
-
-// ConfigEnvironment |
-func ConfigEnvironment(env string) {
-	if env == "development" {
-		err := godotenv.Load()
-		if err != nil {
-			log.Fatal("Error loading .env file")
-		}
-	}
-}
 
 func main() {
 	environment := flag.String("e", "development", "")
@@ -29,15 +16,14 @@ func main() {
 		os.Exit(1)
 	}
 	flag.Parse()
-	ConfigEnvironment(*environment)
-	startApp()
+	startApp(*environment)
 }
 
-func startApp() {
-	router := config.SetupRouter()
-	routes.LoadRouter(router)
+func startApp(env string) {
+	engine := config.SetupEngine(env)
 	serverHost := os.Getenv("SERVER_ADDRESS")
 	serverPort := os.Getenv("SERVER_PORT")
 	serverString := fmt.Sprintf("%s:%s", serverHost, serverPort)
-	router.Run(serverString)
+	router.LoadRouter(engine)
+	engine.Run(serverString)
 }

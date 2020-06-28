@@ -1,2 +1,7 @@
-
+go.sum
+buildspecs
+database
 mydb
+tmp
+bin
+tools

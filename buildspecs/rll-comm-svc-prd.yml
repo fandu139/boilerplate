@@ -1,0 +1,17 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      golang: 1.13
+  pre_build:
+    commands:
+      
+  build:
+    commands:
+      - docker build -t $REPOSITORY_URI:latest -f dockerfiles/dockerfile-comm-prd
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+  post_build:
+    commands:
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
+artifacts:
+    files: comm-svc-prd.json
