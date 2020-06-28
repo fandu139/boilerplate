@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/orn-id/orn-mn-boilerplate-go/src/utils/log/entity"
+	"github.com/sofyan48/boilerplate/src/utils/log/entity"
 )
 
 // LogLocal ...

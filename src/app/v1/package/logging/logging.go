@@ -3,9 +3,9 @@ package logging
 import (
 	"os"
 
-	"github.com/orn-id/orn-mn-boilerplate-go/src/utils/log"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/utils/log/local"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/utils/log/sentry"
+	"github.com/sofyan48/boilerplate/src/utils/log"
+	"github.com/sofyan48/boilerplate/src/utils/log/local"
+	"github.com/sofyan48/boilerplate/src/utils/log/sentry"
 )
 
 // Logging ...

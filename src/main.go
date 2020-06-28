@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/orn-id/orn-mn-boilerplate-go/src/config"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/router"
+	"github.com/sofyan48/boilerplate/src/config"
+	"github.com/sofyan48/boilerplate/src/router"
 )
 
 func main() {

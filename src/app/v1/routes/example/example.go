@@ -2,8 +2,8 @@ package example
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/app/v1/api/example/controller"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/middleware"
+	"github.com/sofyan48/boilerplate/src/app/v1/api/example/controller"
+	"github.com/sofyan48/boilerplate/src/middleware"
 )
 
 // RoutesExample ...

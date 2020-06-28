@@ -2,9 +2,9 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/app/v1/api/example/entity"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/app/v1/api/example/service"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/app/v1/package/rest"
+	"github.com/sofyan48/boilerplate/src/app/v1/api/example/entity"
+	"github.com/sofyan48/boilerplate/src/app/v1/api/example/service"
+	"github.com/sofyan48/boilerplate/src/app/v1/package/rest"
 )
 
 // ExampleController ...

@@ -2,9 +2,9 @@ package service
 
 import (
 	"github.com/jinzhu/gorm"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/app/v1/api/health/entity"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/utils/cache"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/utils/database"
+	"github.com/sofyan48/boilerplate/src/app/v1/api/health/entity"
+	"github.com/sofyan48/boilerplate/src/utils/cache"
+	"github.com/sofyan48/boilerplate/src/utils/database"
 )
 
 // HealthService ...

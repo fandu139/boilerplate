@@ -1,4 +1,4 @@
-module github.com/orn-id/orn-mn-boilerplate-go
+module github.com/sofyan48/boilerplate
 
 go 1.14
 

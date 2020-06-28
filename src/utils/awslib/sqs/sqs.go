@@ -3,7 +3,7 @@ package sqs
 import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/sqs"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/utils/awslib/credential"
+	"github.com/sofyan48/boilerplate/src/utils/awslib/credential"
 )
 
 // SQSManager ...

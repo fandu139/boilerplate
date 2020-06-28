@@ -1,8 +1,8 @@
 package log
 
 import (
-	"github.com/orn-id/orn-mn-boilerplate-go/src/utils/log/local"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/utils/log/sentry"
+	"github.com/sofyan48/boilerplate/src/utils/log/local"
+	"github.com/sofyan48/boilerplate/src/utils/log/sentry"
 )
 
 // Log ...

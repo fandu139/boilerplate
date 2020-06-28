@@ -1,9 +1,9 @@
 package database
 
 import (
-	"github.com/orn-id/orn-mn-boilerplate-go/src/utils/database/cockroach"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/utils/database/mysql"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/utils/database/postgre"
+	"github.com/sofyan48/boilerplate/src/utils/database/cockroach"
+	"github.com/sofyan48/boilerplate/src/utils/database/mysql"
+	"github.com/sofyan48/boilerplate/src/utils/database/postgre"
 )
 
 type Database struct{}

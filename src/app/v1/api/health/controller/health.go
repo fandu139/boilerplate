@@ -2,8 +2,8 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/app/v1/api/health/service"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/app/v1/package/rest"
+	"github.com/sofyan48/boilerplate/src/app/v1/api/health/service"
+	"github.com/sofyan48/boilerplate/src/app/v1/package/rest"
 )
 
 // HealthController types

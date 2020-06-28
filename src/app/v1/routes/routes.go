@@ -2,9 +2,9 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/app/v1/routes/docs"
-	order "github.com/orn-id/orn-mn-boilerplate-go/src/app/v1/routes/example"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/app/v1/routes/health"
+	"github.com/sofyan48/boilerplate/src/app/v1/routes/docs"
+	order "github.com/sofyan48/boilerplate/src/app/v1/routes/example"
+	"github.com/sofyan48/boilerplate/src/app/v1/routes/health"
 )
 
 // VERSION ...

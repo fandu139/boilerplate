@@ -1,8 +1,8 @@
 package awslib
 
 import (
-	"github.com/orn-id/orn-mn-boilerplate-go/src/utils/awslib/sqs"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/utils/awslib/storage"
+	"github.com/sofyan48/boilerplate/src/utils/awslib/sqs"
+	"github.com/sofyan48/boilerplate/src/utils/awslib/storage"
 )
 
 // AWS ...

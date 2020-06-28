@@ -1,7 +1,7 @@
 package cache
 
 import (
-	"github.com/orn-id/orn-mn-boilerplate-go/src/utils/cache/redis"
+	"github.com/sofyan48/boilerplate/src/utils/cache/redis"
 )
 
 type Cache struct{}

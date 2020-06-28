@@ -3,9 +3,9 @@ package aws
 import (
 	"fmt"
 
-	"github.com/orn-id/orn-mn-boilerplate-go/src/utils/awslib"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/utils/awslib/sqs"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/utils/awslib/storage"
+	"github.com/sofyan48/boilerplate/src/utils/awslib"
+	"github.com/sofyan48/boilerplate/src/utils/awslib/sqs"
+	"github.com/sofyan48/boilerplate/src/utils/awslib/storage"
 )
 
 // AwsPackage ...

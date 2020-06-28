@@ -1,8 +1,8 @@
 package service
 
 import (
-	"github.com/orn-id/orn-mn-boilerplate-go/src/app/v1/api/example/entity"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/app/v1/api/example/repository"
+	"github.com/sofyan48/boilerplate/src/app/v1/api/example/entity"
+	"github.com/sofyan48/boilerplate/src/app/v1/api/example/repository"
 )
 
 // ExampleService ...

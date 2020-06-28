@@ -3,8 +3,8 @@ package repository
 import (
 	"github.com/jinzhu/gorm"
 
-	"github.com/orn-id/orn-mn-boilerplate-go/src/app/v1/api/example/entity"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/utils/database"
+	"github.com/sofyan48/boilerplate/src/app/v1/api/example/entity"
+	"github.com/sofyan48/boilerplate/src/utils/database"
 )
 
 // TABLE ...

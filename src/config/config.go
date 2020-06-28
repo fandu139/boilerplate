@@ -6,7 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
-	"github.com/orn-id/orn-mn-boilerplate-go/src/middleware"
+	"github.com/sofyan48/boilerplate/src/middleware"
 )
 
 // SetupEngine server router configuration
