@@ -95,46 +95,6 @@ DB_HOST_READ=orn_order_api_mysql
 DB_PORT_READ=3306
 DB_NAME_READ=orn-order
 ```
-#### Generate From Tools
-After the tools are installed properly you can generate the environment. make sure that your entire environment is stored in the AWS System Manager Store.
-```
-user$ orn ssm -h
-
-NAME:
-   orn ssm - ssm [option]
-
-USAGE:
-   orn ssm [command options] [arguments...]
-
-OPTIONS:
-   --path value, -p value     SSM path
-   --decryption               --decryption
-   --encryption               --encryption
-   --overwrite                --overwrite
-   --value value, -v value    SSM Value
-   --file value, -f value     file target
-   --service value, -s value  service name
-```
-For generate your ssm follow this command
-```
-user$ orn ssm getPath -p /orn/dev/general/testing/boilerplate -f .env.ssm --decryption
-Writes:  STAGE
-Writes:  STAGE1
-```
-*Please read the full feature about this ssm tools section in the tools subbab*
-
-#### Generate Legacy Mode
-You can also use legacy mode to generate environments, 
-Make sure there is a file name *env-$stage* then setup your default aws CLI profile correctly make sure the output mode is *json*. follow this command
-```
-awk '{print "echo " $0 " >> .env"}' env-$stage > env.sh && sh env.sh && rm env.sh
-```
-*note: $stage*
-1. dev
-2. prd
-
-If the file *env-$stage* is not found, this feature is no longer supported.
-
 
 ### Local Development
 ---
@@ -199,17 +159,6 @@ All the needs regarding development are available, you just need to make changes
 
 *note: If there is a database connection problem you can simply change some code to run the server again*
 
-#### Failure service
-**Migrate** restart after fail
-```
-docker-compose restart orn_service_api_golang_tools_migrate
-```
-
-**Seeder** restart after fail
-```
-docker-compose restart orn_service_api_golang_tools_seed
-```
-*note: After your edit environtment restart container to effect*
 
 ### Production
 ---
