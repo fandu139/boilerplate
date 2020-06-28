@@ -228,17 +228,6 @@ phases:
       golang: 1.13
   pre_build:
     commands:
-      - git clone https://github.com/awslabs/git-secrets.git
-      - cd git-secrets && make install
-      - git secrets --register-aws --global
-      - export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
-      - cd $CODEBUILD_SRC_DIR && git init
-      - git add .
-      - git rm --cached -f git-secrets
-      - cd $CODEBUILD_SRC_DIR && git-secrets --scan
-      - awk '{print "echo " $0 " >> .env"}' .env-prd > env.sh && sh env.sh && rm env.sh
-      - cd $CODEBUILD_SRC_DIR
-      - $(aws ecr get-login --no-include-email --region ap-southeast-1)
       - REPOSITORY_URI=518667233221.dkr.ecr.ap-southeast-1.amazonaws.com/orn-comm-svc-dev
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
@@ -262,18 +251,6 @@ phases:
       golang: 1.13
   pre_build:
     commands:
-      - git clone https://github.com/awslabs/git-secrets.git
-      - cd git-secrets && make install
-      - git secrets --register-aws --global
-      - export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
-      - cd $CODEBUILD_SRC_DIR && git init
-      - git add .
-      - git rm --cached -f git-secrets
-      - cd $CODEBUILD_SRC_DIR && git-secrets --scan
-      - awk '{print "echo " $0 " >> .env"}' .env-prd > env.sh && sh env.sh && rm env.sh
-      - cd $CODEBUILD_SRC_DIR
-      - $(aws ecr get-login --no-include-email --region ap-southeast-1)
-      - REPOSITORY_URI=518667233221.dkr.ecr.ap-southeast-1.amazonaws.com/orn-comm-svc-prd
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
   build:
