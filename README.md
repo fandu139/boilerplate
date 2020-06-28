@@ -228,7 +228,6 @@ phases:
       golang: 1.13
   pre_build:
     commands:
-      - REPOSITORY_URI=518667233221.dkr.ecr.ap-southeast-1.amazonaws.com/orn-comm-svc-dev
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
   build:
