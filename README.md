@@ -40,6 +40,13 @@ To use this boilerplate in a new microservice, you are required to change the pa
 replace: github.com/sofyan48/boilerplate | to: github.com/orn-id/$new_service_name
 ```
 
+### Environment setup
+#### Development
+See your docekr-compose.yml search this line orn_service_api_golang see environtment section now adding your new environment variabel
+
+#### Production
+change your .env.example to .env
+
 ### Insight and Understanding Boilerplate
 **Engine** This boilerplate uses the gin framework as the basis of the engine i.e:
 1. src/config
@@ -52,12 +59,12 @@ For the global package itself, there is at
 
 **Application** The application structure is in the ***internal/$version/***
 1. *package* is a helper or local utility that is used only in that version if the function you created can be consumed by global make it in ***/src/utils/$package_name***
+1. *presentation* is a local utility that is used only in that version if the function you created can be consumed by global make it in ***/src/utils/$package_name***
 2. *routes* are the initiation between the router engine and the API that will be made. All routing from the API will be collected in this section
 3. *ucase* is a place where you are creative in forming a microservice
 
-The structure used in this boilerplate is the structure that is applied to the ***Clean Architercture from Uncle Bob*** model, to see more clearly the structure please read [here](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 
-#### AWS Development
+### AWS Development
 setting runtime version to golang 1.13 or latest and for environtment setup dont forget setup AWS System manager to storing environment value.
 ```
 version: 0.2
@@ -79,7 +86,7 @@ phases:
 artifacts:
     files: comm-boilerplate-dev.json
 ```
-#### AWS Production
+### AWS Production
 setting runtime version to golang 1.13 or latest and for environtment setup dont forget setup AWS System manager to storing environment value.
 ```
 version: 0.2
