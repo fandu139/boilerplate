@@ -1,7 +1,0 @@
-CREATE TABLE IF NOT EXISTS tb_example_type (
-  id_order_type int(10) primary key  AUTO_INCREMENT,
-  order_type varchar(30) CHARACTER SET latin1 NOT NULL,
-  created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  deleted_at timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;

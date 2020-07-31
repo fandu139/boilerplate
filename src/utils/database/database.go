@@ -6,29 +6,24 @@ import (
 	"github.com/sofyan48/boilerplate/src/utils/database/postgre"
 )
 
-type Database struct{}
+type database struct{}
 
-func DatabaseHandler() *Database {
-	return &Database{}
-}
-
-type DatabaseInterface interface {
-	Postgre() *postgre.PostgreLibs
-	MySQL() *mysql.MySqlLibs
-	Roach() *cockroach.CockroachLibs
+// New ..
+func New() Contract {
+	return &database{}
 }
 
 // Postgre ..
-func (db *Database) Postgre() *postgre.PostgreLibs {
+func (db *database) Postgre() *postgre.PostgreLibs {
 	return postgre.PostgreLibsHandler()
 }
 
 // MySQL ...
-func (db *Database) MySQL() *mysql.MySqlLibs {
+func (db *database) MySQL() *mysql.MySqlLibs {
 	return mysql.MySqlLibsHandler()
 }
 
 // Roach ...
-func (db *Database) Roach() *cockroach.CockroachLibs {
+func (db *database) Roach() *cockroach.CockroachLibs {
 	return cockroach.CockroachLibsHandler()
 }

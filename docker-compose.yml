@@ -1,13 +1,12 @@
 version: '3.2'
 services:
-    # Run local DB
     orn_service_api_mysql:
-        image: mysql:5.7
+        image: mariadb
         environment:
-            MYSQL_DATABASE: "orn-order"
-            MYSQL_USER: "orn-order_username"
-            MYSQL_PASSWORD: "orn-order_password"
-            MYSQL_ROOT_PASSWORD: "orn-order_password"
+            MYSQL_DATABASE: "orn"
+            MYSQL_USER: "orn"
+            MYSQL_PASSWORD: "orn"
+            MYSQL_ROOT_PASSWORD: "orn"
         ports:
         - '3306:3306'
         expose:
@@ -15,16 +14,43 @@ services:
         volumes:
         - ./mydb:/var/lib/mysql
 
-    # Run local REDIS
     orn_service_cache:
         image: redis
         command: redis-server --requirepass root
         ports:
         - "6379:6379"
-    # Run Service by development mode
+
     orn_service_api_golang:
-        image: ralali/service:local
+        image: orn-id/service:local
         build: .
+        environment:
+        - SERVER_ADDRESS=0.0.0.0
+        - SERVER_PORT=3000
+        - SERVER_TIMEZONE=Asia/Jakarta
+        - SECRET_KEY={{SECRET_KEY}}
+        - APP_NAME=boil
+        - APP_USERNAME=boil
+        - APP_PASSWORD=boil
+
+        - DB_HOST=orn_service_api_mysql
+        - DB_USER=orn
+        - DB_PASSWORD=orn
+        - DB_PORT=3306
+        - DB_NAME=orn
+        - DB_HOST_READ=orn_service_api_mysql
+        - DB_USER_READ=orn
+        - DB_PASSWORD_READ=orn
+        - DB_PORT_READ=3306
+        - DB_NAME_READ=orn
+
+        - AWS_ACCESS_KEY=
+        - AWS_ACCESS_SECRET=
+        - AWS_ACCESS_AREA=
+
+        - CORS_CONTROL_ALLOW_ORIGIN=orn_service_cache
+        - REDIS_HOST=orn_service_cache
+        - REDIS_PORT=6379
+        - REDIS_PASSWORD=root
         ports:
         - '3000:3000'
         command: air

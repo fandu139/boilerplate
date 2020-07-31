@@ -2,27 +2,27 @@ package redis
 
 import (
 	"fmt"
-	"log"
 	"os"
 
 	"github.com/gomodule/redigo/redis"
+	"github.com/sofyan48/boilerplate/src/utils/log"
 )
 
-// RLCache ...
-type RLCache struct{}
+// Cache ...
+type Cache struct{}
 
-// RLCacheHandler ...
-func RLCacheHandler() *RLCache {
-	return &RLCache{}
+// CacheHandler ...
+func New() *Cache {
+	return &Cache{}
 }
 
-// RLCacheInterface ...
-type RLCacheInterface interface {
+// CacheInterface ...
+type CacheInterface interface {
 	Ping() (string, error)
 	DO(command string, args ...interface{}) (interface{}, error)
 }
 
-func (handler *RLCache) newPool() *redis.Pool {
+func (handler *Cache) newPool() *redis.Pool {
 	host := os.Getenv("REDIS_HOST")
 	port := os.Getenv("REDIS_PORT")
 	password := os.Getenv("REDIS_PASSWORD")
@@ -33,7 +33,7 @@ func (handler *RLCache) newPool() *redis.Pool {
 		Dial: func() (redis.Conn, error) {
 			c, err := redis.Dial("tcp", config, redis.DialPassword(password))
 			if err != nil {
-				log.Println("ERROR: ", err)
+				log.Fatal("Check redis connection", err)
 			}
 			return c, err
 		},
@@ -41,7 +41,7 @@ func (handler *RLCache) newPool() *redis.Pool {
 }
 
 // Ping ...
-func (handler *RLCache) Ping() (string, error) {
+func (handler *Cache) Ping() (string, error) {
 	conn, err := handler.newPool().Dial()
 	if err != nil {
 		return "", err
@@ -54,7 +54,7 @@ func (handler *RLCache) Ping() (string, error) {
 }
 
 // DO ...
-func (handler *RLCache) DO(command string, args ...interface{}) (interface{}, error) {
+func (handler *Cache) DO(command string, args ...interface{}) (interface{}, error) {
 	conn, err := handler.newPool().Dial()
 	if err != nil {
 		return nil, err

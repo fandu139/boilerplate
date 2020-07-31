@@ -7,29 +7,21 @@ import (
 	"net/http"
 )
 
-// Requester ...
-type Requester struct{}
+// handler ...
+type handler struct{}
 
-// RequesterHandler ...
-func RequesterHandler() *Requester {
-	return &Requester{}
-}
-
-type RequesterInterface interface {
-	GET(url string, header map[string]string) ([]byte, error)
-	DELETE(url string, header map[string]string) ([]byte, error)
-	POST(url string, header map[string]string, payload []byte) ([]byte, error)
-	PUT(url string, header map[string]string, payload []byte) ([]byte, error)
-	RAW(method, url string, body io.Reader) (*http.Request, error)
+// New ...
+func New() Contract {
+	return &handler{}
 }
 
 // RAW ...
-func (request *Requester) RAW(method, url string, body io.Reader) (*http.Request, error) {
+func (request *handler) RAW(method, url string, body io.Reader) (*http.Request, error) {
 	return http.NewRequest(method, url, body)
 }
 
 // GET request type get
-func (request *Requester) GET(url string, header map[string]string) ([]byte, error) {
+func (request *handler) GET(url string, header map[string]string) ([]byte, error) {
 	var result []byte
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
@@ -54,7 +46,7 @@ func (request *Requester) GET(url string, header map[string]string) ([]byte, err
 }
 
 // POST request type post
-func (request *Requester) POST(url string, header map[string]string, payload []byte) ([]byte, error) {
+func (request *handler) POST(url string, header map[string]string, payload []byte) ([]byte, error) {
 	var result []byte
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(payload))
 	if err != nil {
@@ -79,7 +71,7 @@ func (request *Requester) POST(url string, header map[string]string, payload []b
 }
 
 // PUT request type post
-func (request *Requester) PUT(url string, header map[string]string, payload []byte) ([]byte, error) {
+func (request *handler) PUT(url string, header map[string]string, payload []byte) ([]byte, error) {
 	var result []byte
 	req, err := http.NewRequest("PUT", url, bytes.NewBuffer(payload))
 	if err != nil {
@@ -103,7 +95,7 @@ func (request *Requester) PUT(url string, header map[string]string, payload []by
 }
 
 // DELETE request type get
-func (request *Requester) DELETE(url string, header map[string]string) ([]byte, error) {
+func (request *handler) DELETE(url string, header map[string]string) ([]byte, error) {
 	var result []byte
 	req, err := http.NewRequest("DELETE", url, nil)
 	if err != nil {

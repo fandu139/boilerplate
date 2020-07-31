@@ -44,4 +44,3 @@ go.sum
 tmp
 bin
 .env.ssm
-docs

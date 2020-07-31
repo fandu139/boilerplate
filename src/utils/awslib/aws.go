@@ -6,25 +6,19 @@ import (
 )
 
 // AWS ...
-type AWS struct{}
+type aws struct{}
 
-// AWSHandler ...
-func AWSHandler() *AWS {
-	return &AWS{}
-}
-
-// AWSInterface ...
-type AWSInterface interface {
-	S3() *storage.S3Manager
-	SQS() *sqs.SQSManager
+// New ...
+func New() Contract {
+	return &aws{}
 }
 
 // S3 ...
-func (a *AWS) S3() *storage.S3Manager {
+func (a *aws) S3() *storage.S3Manager {
 	return storage.S3ManagerHandler()
 }
 
 // SQS ...
-func (a *AWS) SQS() *sqs.SQSManager {
+func (a *aws) SQS() *sqs.SQSManager {
 	return sqs.SQSManagerHandler()
 }

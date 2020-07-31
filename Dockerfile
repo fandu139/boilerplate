@@ -1,4 +1,4 @@
-FROM golang:1.13-alpine AS builder
+FROM golang:1.14-alpine AS builder
 
 RUN apk update && \
     apk upgrade && \
@@ -9,9 +9,5 @@ RUN apk update && \
     
 WORKDIR /app
 COPY    . .
-
-RUN make tool-linux \
-    && make install \
-    && make clean
 
 EXPOSE 3000

@@ -2,11 +2,17 @@ package postgre
 
 import (
 	"fmt"
-	"log"
 	"os"
+
+	"github.com/sofyan48/boilerplate/src/utils/log"
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
+)
+
+var (
+	dbWrite *gorm.DB
+	dbRead  *gorm.DB
 )
 
 // PostgreLibs ...
@@ -33,7 +39,7 @@ func dbInit(dbhost, dbport, dbuser, dbpass, dbname string) (*gorm.DB, error) {
 	)
 	DB, err := gorm.Open("postgres", configDB)
 	if err != nil {
-		log.Println(fmt.Sprintf("failed to connect to database: %v", err))
+		log.Fatal("failed to connect to database", err)
 		return nil, err
 	}
 	DB.DB().SetMaxIdleConns(10)
@@ -50,11 +56,10 @@ func getTransactionConnection() *gorm.DB {
 	dbuser := os.Getenv("DB_USER")
 	dbpass := os.Getenv("DB_PASSWORD")
 	dbname := os.Getenv("DB_NAME")
-	var TransactionDB *gorm.DB
-	if TransactionDB == nil {
-		TransactionDB, _ = dbInit(dbhost, dbport, dbuser, dbpass, dbname)
+	if dbWrite == nil {
+		dbWrite, _ = dbInit(dbhost, dbport, dbuser, dbpass, dbname)
 	}
-	return TransactionDB
+	return dbWrite
 }
 
 // getReadConnection function
@@ -65,9 +70,8 @@ func getReadConnection() *gorm.DB {
 	dbuser := os.Getenv("DB_USER_READ")
 	dbpass := os.Getenv("DB_PASSWORD_READ")
 	dbname := os.Getenv("DB_NAME_READ")
-	var readConnection *gorm.DB
-	if readConnection == nil {
-		readConnection, _ = dbInit(dbhost, dbport, dbuser, dbpass, dbname)
+	if dbRead == nil {
+		dbRead, _ = dbInit(dbhost, dbport, dbuser, dbpass, dbname)
 	}
-	return readConnection
+	return dbRead
 }

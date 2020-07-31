@@ -4,17 +4,14 @@ import (
 	"github.com/sofyan48/boilerplate/src/utils/cache/redis"
 )
 
-type Cache struct{}
+type cache struct{}
 
-func CacheHandler() *Cache {
-	return &Cache{}
-}
-
-type CacheInterface interface {
-	Redis() *redis.RLCache
+// New ...
+func New() Contract {
+	return &cache{}
 }
 
 // Redis ...
-func (c *Cache) Redis() *redis.RLCache {
-	return redis.RLCacheHandler()
+func (c *cache) Redis() *redis.Cache {
+	return redis.New()
 }

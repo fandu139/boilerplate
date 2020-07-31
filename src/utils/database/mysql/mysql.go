@@ -2,12 +2,18 @@ package mysql
 
 import (
 	"fmt"
-	"log"
 	"net/url"
 	"os"
 
+	"github.com/sofyan48/boilerplate/src/utils/log"
+
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
+)
+
+var (
+	dbWrite *gorm.DB
+	dbRead  *gorm.DB
 )
 
 // MySqlLibs ...
@@ -39,7 +45,7 @@ func dbInitTransaction(dbhost, dbport, dbuser, dbpass, dbname string) (*gorm.DB,
 	DB, err := gorm.Open("mysql", configDB)
 	defer DB.Close()
 	if err != nil {
-		log.Fatal(fmt.Sprintf("failed to connect to database: %v", err))
+		log.Fatal("failed to connect to database", err)
 		return nil, err
 	}
 	DB.DB().SetMaxIdleConns(10)
@@ -63,7 +69,7 @@ func dbInitRead(dbhost, dbport, dbuser, dbpass, dbname string) (*gorm.DB, error)
 
 	DB, err := gorm.Open("mysql", configDB)
 	if err != nil {
-		log.Println(fmt.Sprintf("failed to connect to database: %v", err))
+		log.Fatal("failed to connect to database", err)
 		return nil, err
 	}
 	DB.DB().SetMaxIdleConns(10)
@@ -80,16 +86,15 @@ func readDB() *gorm.DB {
 	dbuser := os.Getenv("DB_USER_READ")
 	dbpass := os.Getenv("DB_PASSWORD_READ")
 	dbname := os.Getenv("DB_NAME_READ")
-	var readDB *gorm.DB
-	if readDB == nil {
-		readDB, err := dbInitRead(dbhost, dbport, dbuser, dbpass, dbname)
+	if dbRead == nil {
+		dbRead, err := dbInitRead(dbhost, dbport, dbuser, dbpass, dbname)
 		if err != nil {
 			fmt.Println(err)
-			defer readDB.Close()
+			defer dbRead.Close()
 		}
-		return readDB
+		return dbRead
 	}
-	return nil
+	return dbRead
 }
 
 // writeDB function
@@ -100,16 +105,15 @@ func writeDB() *gorm.DB {
 	dbuser := os.Getenv("DB_USER")
 	dbpass := os.Getenv("DB_PASSWORD")
 	dbname := os.Getenv("DB_NAME")
-	var TransactionDB *gorm.DB
-	if TransactionDB == nil {
-		TransactionDB, err := dbInitTransaction(dbhost, dbport, dbuser, dbpass, dbname)
+	if dbWrite == nil {
+		dbWrite, err := dbInitTransaction(dbhost, dbport, dbuser, dbpass, dbname)
 		if err != nil {
 			fmt.Println(err)
-			defer TransactionDB.Close()
+			defer dbWrite.Close()
 		}
-		return TransactionDB
+		return dbWrite
 	}
-	return nil
+	return dbWrite
 }
 
 // func (libs *MySqlLibs) ShowConnection() {
