@@ -1,6 +1,6 @@
 package cache
 
-import "github.com/sofyan48/boilerplate/src/utils/cache/redis"
+import "github.com/fandu139/boilerplate/src/utils/cache/redis"
 
 // Contract ...
 type Contract interface {

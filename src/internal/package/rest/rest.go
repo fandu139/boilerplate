@@ -2,7 +2,7 @@ package rest
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/sofyan48/boilerplate/src/appctx/apps"
+	"github.com/fandu139/boilerplate/src/appctx/apps"
 )
 
 // APIResponse types

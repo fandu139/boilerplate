@@ -2,9 +2,9 @@ package health
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/sofyan48/boilerplate/src/internal/ucase/contract"
-	"github.com/sofyan48/boilerplate/src/internal/ucase/contract/health"
-	"github.com/sofyan48/boilerplate/src/middleware"
+	"github.com/fandu139/boilerplate/src/internal/ucase/contract"
+	"github.com/fandu139/boilerplate/src/internal/ucase/contract/health"
+	"github.com/fandu139/boilerplate/src/middleware"
 )
 
 // RoutesHealth ...

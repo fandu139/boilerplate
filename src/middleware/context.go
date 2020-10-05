@@ -2,7 +2,7 @@ package middleware
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/sofyan48/boilerplate/src/internal/package/rest"
+	"github.com/fandu139/boilerplate/src/internal/package/rest"
 )
 
 // GetContext ...

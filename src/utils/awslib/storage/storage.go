@@ -3,7 +3,7 @@ package storage
 import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
-	"github.com/sofyan48/boilerplate/src/utils/awslib/credential"
+	"github.com/fandu139/boilerplate/src/utils/awslib/credential"
 )
 
 // S3Manager ...

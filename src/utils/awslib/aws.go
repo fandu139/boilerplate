@@ -1,8 +1,8 @@
 package awslib
 
 import (
-	"github.com/sofyan48/boilerplate/src/utils/awslib/sqs"
-	"github.com/sofyan48/boilerplate/src/utils/awslib/storage"
+	"github.com/fandu139/boilerplate/src/utils/awslib/sqs"
+	"github.com/fandu139/boilerplate/src/utils/awslib/storage"
 )
 
 // AWS ...

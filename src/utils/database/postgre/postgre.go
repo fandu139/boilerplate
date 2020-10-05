@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/sofyan48/boilerplate/src/utils/log"
+	"github.com/fandu139/boilerplate/src/utils/log"
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"

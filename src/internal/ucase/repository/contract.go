@@ -2,7 +2,7 @@ package repository
 
 import (
 	"github.com/jinzhu/gorm"
-	"github.com/sofyan48/boilerplate/src/internal/ucase/entity"
+	"github.com/fandu139/boilerplate/src/internal/ucase/entity"
 )
 
 // Example interface

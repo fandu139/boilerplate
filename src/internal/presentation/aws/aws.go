@@ -3,10 +3,10 @@ package aws
 import (
 	"fmt"
 
-	"github.com/sofyan48/boilerplate/src/internal/presentation"
-	"github.com/sofyan48/boilerplate/src/utils/awslib"
-	"github.com/sofyan48/boilerplate/src/utils/awslib/sqs"
-	"github.com/sofyan48/boilerplate/src/utils/awslib/storage"
+	"github.com/fandu139/boilerplate/src/internal/presentation"
+	"github.com/fandu139/boilerplate/src/utils/awslib"
+	"github.com/fandu139/boilerplate/src/utils/awslib/sqs"
+	"github.com/fandu139/boilerplate/src/utils/awslib/storage"
 )
 
 // AwsPackage ...

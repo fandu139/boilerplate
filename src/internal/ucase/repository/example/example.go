@@ -3,9 +3,9 @@ package example
 import (
 	"github.com/jinzhu/gorm"
 
-	"github.com/sofyan48/boilerplate/src/internal/ucase/entity"
-	"github.com/sofyan48/boilerplate/src/internal/ucase/repository"
-	"github.com/sofyan48/boilerplate/src/utils/database"
+	"github.com/fandu139/boilerplate/src/internal/ucase/entity"
+	"github.com/fandu139/boilerplate/src/internal/ucase/repository"
+	"github.com/fandu139/boilerplate/src/utils/database"
 )
 
 // TABLE ...

@@ -2,8 +2,8 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/sofyan48/boilerplate/src/internal/routes/docs"
-	"github.com/sofyan48/boilerplate/src/internal/routes/health"
+	"github.com/fandu139/boilerplate/src/internal/routes/docs"
+	"github.com/fandu139/boilerplate/src/internal/routes/health"
 )
 
 // VERSION ...
@@ -33,5 +33,12 @@ type RouterLoaderInterface interface {
 func (route *RouterLoader) Load(router *gin.Engine) {
 	route.Docs.Load(router, VERSION)
 	route.Health.Load(router, VERSION)
-
 }
+
+// list hit API
+// if you will swag cli, you must install this library go get -u github.com/swaggo/swag/cmd/swag
+// http://localhost:3000/v1/docs/index.html
+
+// http://localhost:3000/v1/health
+// http://localhost:3000/v1/health/check
+

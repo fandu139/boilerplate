@@ -5,7 +5,7 @@ import (
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 
-	_ "github.com/sofyan48/boilerplate/src/internal/swagger"
+	_ "github.com/fandu139/boilerplate/src/internal/swagger"
 )
 
 // RoutesDocs ...

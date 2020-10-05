@@ -2,7 +2,7 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/sofyan48/boilerplate/src/internal/routes"
+	"github.com/fandu139/boilerplate/src/internal/routes"
 )
 
 // LoadRouter params

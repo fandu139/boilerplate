@@ -1,7 +1,7 @@
 package errors
 
 import (
-	"github.com/sofyan48/boilerplate/src/appctx/apps"
+	"github.com/fandu139/boilerplate/src/appctx/apps"
 )
 
 type Error interface {

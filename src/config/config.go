@@ -4,13 +4,13 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/sofyan48/boilerplate/src/utils/log"
+	"github.com/fandu139/boilerplate/src/utils/log"
 
 	"github.com/gin-contrib/logger"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"github.com/rs/zerolog"
-	"github.com/sofyan48/boilerplate/src/middleware"
+	"github.com/fandu139/boilerplate/src/middleware"
 )
 
 // SetupEngine server router configuration

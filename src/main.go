@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/sofyan48/boilerplate/src/config"
-	"github.com/sofyan48/boilerplate/src/router"
+	"github.com/fandu139/boilerplate/src/config"
+	"github.com/fandu139/boilerplate/src/router"
 )
 
 func main() {

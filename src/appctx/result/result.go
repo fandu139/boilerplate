@@ -1,6 +1,6 @@
 package result
 
-import "github.com/sofyan48/boilerplate/src/appctx/apps"
+import "github.com/fandu139/boilerplate/src/appctx/apps"
 
 // Result ...
 type Result interface {

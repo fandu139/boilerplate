@@ -2,14 +2,14 @@ package health
 
 import (
 	"github.com/jinzhu/gorm"
-	"github.com/sofyan48/boilerplate/src/appctx"
-	"github.com/sofyan48/boilerplate/src/appctx/apps"
-	"github.com/sofyan48/boilerplate/src/appctx/errors"
-	"github.com/sofyan48/boilerplate/src/appctx/result"
-	"github.com/sofyan48/boilerplate/src/internal/ucase/entity"
-	"github.com/sofyan48/boilerplate/src/internal/ucase/service"
-	"github.com/sofyan48/boilerplate/src/utils/cache"
-	"github.com/sofyan48/boilerplate/src/utils/database"
+	"github.com/fandu139/boilerplate/src/appctx"
+	"github.com/fandu139/boilerplate/src/appctx/apps"
+	"github.com/fandu139/boilerplate/src/appctx/errors"
+	"github.com/fandu139/boilerplate/src/appctx/result"
+	"github.com/fandu139/boilerplate/src/internal/ucase/entity"
+	"github.com/fandu139/boilerplate/src/internal/ucase/service"
+	"github.com/fandu139/boilerplate/src/utils/cache"
+	"github.com/fandu139/boilerplate/src/utils/database"
 )
 
 // Health ...

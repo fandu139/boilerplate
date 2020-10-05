@@ -2,9 +2,9 @@ package validator
 
 import (
 	"github.com/go-playground/validator/v10"
-	"github.com/sofyan48/boilerplate/src/appctx"
-	"github.com/sofyan48/boilerplate/src/appctx/apps"
-	"github.com/sofyan48/boilerplate/src/appctx/errors"
+	"github.com/fandu139/boilerplate/src/appctx"
+	"github.com/fandu139/boilerplate/src/appctx/apps"
+	"github.com/fandu139/boilerplate/src/appctx/errors"
 )
 
 type libValidator struct {

@@ -3,8 +3,8 @@ package appctx
 import (
 	"net/http"
 
-	"github.com/sofyan48/boilerplate/src/appctx/apps"
-	"github.com/sofyan48/boilerplate/src/appctx/errors"
+	"github.com/fandu139/boilerplate/src/appctx/apps"
+	"github.com/fandu139/boilerplate/src/appctx/errors"
 )
 
 type errorContext struct{}

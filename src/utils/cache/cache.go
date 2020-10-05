@@ -1,7 +1,7 @@
 package cache
 
 import (
-	"github.com/sofyan48/boilerplate/src/utils/cache/redis"
+	"github.com/fandu139/boilerplate/src/utils/cache/redis"
 )
 
 type cache struct{}
